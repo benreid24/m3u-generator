@@ -7,7 +7,6 @@ def create_m3u_playlist(input_dir, output_dir):
         os.makedirs(output_dir)
 
     child_folders = [folder for folder in os.listdir(input_dir) if os.path.isdir(os.path.join(input_dir, folder))]
-    all_exts = set()
 
     for folder in child_folders:
         folder_path = os.path.join(input_dir, folder)
