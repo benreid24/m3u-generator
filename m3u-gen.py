@@ -10,7 +10,7 @@ def create_m3u_playlist(input_dir, output_dir):
 
     for folder in child_folders:
         folder_path = os.path.join(input_dir, folder)
-        m3u_path = os.path.join(output_dir, f"{folder}.m3u8")
+        m3u_path = os.path.join(output_dir, f"{folder.replace(' ', '_')}.m3u8")
 
         music_files = [file for file in os.listdir(folder_path) if file.lower().endswith(('.mp3', '.wav', '.ogg', '.flac', '.opus', '.m4a'))]
 
