@@ -17,7 +17,8 @@ def create_m3u_playlist(input_dir, output_dir):
         with open(m3u_path, 'w', encoding='utf-8') as m3u_file:
             for music_file in music_files:
                 full_music_path = os.path.join(folder_path, music_file)
-                m3u_file.write(os.path.relpath(full_music_path, output_dir) + '\n')
+                rel_path = os.path.relpath(full_music_path, output_dir)
+                m3u_file.write(f'local.track:{rel_path}\n')
 
 
 if __name__ == "__main__":
@@ -27,3 +28,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     create_m3u_playlist(args.input_directory, args.output_directory)
+
